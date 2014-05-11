@@ -9,7 +9,6 @@ class AclCogito::CommentsController < ApplicationController
   def create
     @comment = resource.comments.build(comment_params)
     @comment.owner_id = current_commenter.id
-    @comment.body = params[:body]
     if @comment.save
       flash_area = :notice
       message = t('acl_cogito.messages.comment_sent')
@@ -48,7 +47,7 @@ class AclCogito::CommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :comment => [:body])
+    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body, :comment => [:body])
   end
   
 end
