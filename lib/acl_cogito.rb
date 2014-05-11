@@ -11,13 +11,12 @@ module AclCogito
   require 'acl_cogito/railtie'
   require 'acl_cogito/rails'
   require 'acl_cogito/orm/active_record'
-  require 'acl_cogito/acl_cogito_model'
   
   mattr_accessor :model_name
   @@model_name = "Comment"
 
   mattr_accessor :owner_class_name
-  @@owner_class_name = "User"
+  @@owner_class_name = "Member"
 
   mattr_accessor :use_title
   @@use_title = false
@@ -35,7 +34,7 @@ module AclCogito
   @@destroy_conditions = Proc.new { false }
 
   mattr_accessor :current_user_method
-  @@current_user_method = :current_user
+  @@current_user_method = :current_member
 
   mattr_accessor :strip_html_tags_on_save
   @@strip_html_tags_on_save = true

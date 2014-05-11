@@ -11,7 +11,7 @@ module AclCogito
         return if self.included_modules.include?(AclCogito::AclCogitoModel::Validations)
         options = args.extract_options!
 
-        if Cogito.use_title
+        if AclCogito.use_title
           attr_accessible :title 
         end
         attr_accessible :body
