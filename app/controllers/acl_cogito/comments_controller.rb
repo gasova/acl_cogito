@@ -7,8 +7,7 @@ class AclCogito::CommentsController < ApplicationController
   end
 
   def create
-    #@comment = resource.comments.build(params[:comment])
-    @comment = resource.comments.build(:protected_params)
+    @comment = resource.comments.build(params[:comment])
     @comment.owner = current_commenter
     if @comment.save
       flash_area = :notice
@@ -47,8 +46,8 @@ class AclCogito::CommentsController < ApplicationController
   
   private
   
-  def protected_params
-    params.build(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body)
+  def comment_params
+    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body)
   end
   
 end
