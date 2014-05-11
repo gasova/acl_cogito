@@ -6,8 +6,8 @@ module AclCogito
       ActiveSupport.on_load(:active_record) do
         require File.join(File.dirname(__FILE__), 'acl_cogito_model')
         require File.join(File.dirname(__FILE__), 'acl_cogito_subjectum')
-        ::ActiveRecord::Base.send :include, AclCogito::OpinioModel
-        ::ActiveRecord::Base.send :include, AclCogito::OpinioSubjectum
+        ::ActiveRecord::Base.send :include, AclCogito::AclCogitoModel
+        ::ActiveRecord::Base.send :include, AclCogito::AclCogitoSubjectum
       end
       ActiveSupport.on_load(:action_view) do
         require File.join(File.dirname(__FILE__), 'controllers', 'helpers')
