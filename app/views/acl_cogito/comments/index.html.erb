@@ -1,7 +1,7 @@
-<h1><%= t('opinio.messages.comments') %></h1>
+<h1><%= t('acl_cogito.messages.comments') %></h1>
 
 <%= paginate @comments %>
 
-<%= render :partial => "opinio/comments/comments", :locals => { :comments => @comments } %>
+<%= render :partial => "acl_cogito/comments/comments", :locals => { :comments => @comments } %>
 
 <%= paginate @comments %>
