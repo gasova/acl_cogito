@@ -47,7 +47,7 @@ class AclCogito::CommentsController < ApplicationController
   private
   
   def comment_params
-    params.permit comment: [:body, :owner_id, :commentable_id, :commentable_type]
+    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :comment => [:body])
   end
   
 end
