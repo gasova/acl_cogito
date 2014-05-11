@@ -4,10 +4,11 @@
   <p>
     <%= simple_format(comment.body) %>
   </p>
-  <% if comment.owner == current_commenter %>
-    <%= link_to t('acl_cogito.actions.delete'), comment_path(comment), :method => :delete, :remote => true %>
+  <% if current_commenter %>
+	  <% if comment.owner_id == current_commenter.id %>
+    	<%= link_to t('acl_cogito.actions.delete'), comment_path(comment), :method => :delete, :remote => true %>
+  	  <% end %>
   <% end %>
-  <%# this enables only 1 level of replies %>
   <% if Opinio.accept_replies && !reply %>
     <% if current_commenter %>
       <span><%= link_to t('acl_cogito.actions.reply'), reply_comment_path(comment), :remote => true %></span>
