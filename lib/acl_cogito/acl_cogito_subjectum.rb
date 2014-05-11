@@ -8,7 +8,6 @@ module AclCogito
 
         default_options = { :class_name => AclCogito.model_name,
                             :as => :commentable,
-                            :order => "created_at #{AclCogito.sort_order}",
                             :dependent => :destroy }
 
         has_many :comments, default_options.merge(options)
