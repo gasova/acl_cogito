@@ -9,7 +9,7 @@
     	<%= link_to t('acl_cogito.actions.delete'), comment_path(comment), :method => :delete, :remote => true %>
   	  <% end %>
   <% end %>
-  <% if Opinio.accept_replies && !reply %>
+  <% if AclCogito.accept_replies && !reply %>
     <% if current_commenter %>
       <span><%= link_to t('acl_cogito.actions.reply'), reply_comment_path(comment), :remote => true %></span>
     <% end %>
