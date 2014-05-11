@@ -3,9 +3,7 @@ require 'acl_cogito/acl_cogito_model/validations'
 module AclCogito
   module AclCogitoModel
 
-    def self.included(base)
-      base.extend ClassMethods
-    end
+    extend ActiveSupport::Concern
 
     module ClassMethods
     
