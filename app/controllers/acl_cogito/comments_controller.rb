@@ -8,7 +8,7 @@ class AclCogito::CommentsController < ApplicationController
 
   def create
     @comment = resource.comments.build(comment_params)
-    @comment.owner_id = current_commenter
+    @comment.owner_id = current_commenter.id
     if @comment.save
       flash_area = :notice
       message = t('acl_cogito.messages.comment_sent')
