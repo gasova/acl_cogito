@@ -9,10 +9,9 @@ module AclCogito
       end
 
       def render_comments(object, options = {})
-        limit = options.delete(:limit) || AclCogito.model_name.constantize.default_per_page
         page  = options.delete(:page)  || 1
         render( :partial => "acl_cogito/comments/comments", 
-                :locals => { :comments => object.comments.page(page).limit(limit), 
+                :locals => { :comments => object.comments.page(page).per(10), 
                              :commentable => object, 
                              :options => options} )
       end
