@@ -34,7 +34,7 @@ class AclCogito::CommentsController < ApplicationController
       set_flash(:notice, t('acl_cogito.messages.comment_destroyed'))
     else
       #flash[:error]  = I18n.translate('opinio.comment.not_permitted', :default => "Not permitted")
-      logger.warn "user #{current_commenter} tried to remove a comment from another user #{@comment.owner_id}"
+      logger.warn "user #{current_commenter.id} tried to remove a comment from another user #{@comment.owner_id}"
       render :text => "unauthorized", :status => 401 and return
     end
 
