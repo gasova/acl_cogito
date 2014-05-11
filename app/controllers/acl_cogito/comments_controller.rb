@@ -29,7 +29,7 @@ class AclCogito::CommentsController < ApplicationController
   def destroy
     @comment = AclCogito.model_name.constantize.find(params[:id])
 
-    if (current_commenter.id == @comment.owner_id)?
+    if (current_commenter.id == @comment.owner_id)
       @comment.destroy
       #set_flash(:notice, t('acl_cogito.messages.comment_destroyed'))
     else
