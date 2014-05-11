@@ -3,6 +3,7 @@ module AclCogito
     module Helpers
 
       def comments_for(object, options = {})        
+        puts object
         render_comments(object, options) +
         ( render_comments_form(object, options) unless options[:no_new] ).to_s
       end
