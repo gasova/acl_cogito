@@ -57,7 +57,7 @@ module AclCogito
       def self.included(base)
         base.class_eval do
           validate :cannot_be_comment_of_a_comments_comment
-          opinio_subjectum :order => 'created_at ASC'
+          acl_cogito_subjectum :order => 'created_at ASC'
         end
       end
 

@@ -1,14 +1,10 @@
 module AclCogito
   module AclCogitoSubjectum
-  
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
+    extend ActiveSupport::Concern
   
     module ClassMethods
       def acl_cogito_subjectum(*args)
         options = args.extract_options!
-        options.delete(:as)
 
         default_options = { :class_name => AclCogito.model_name,
                             :as => :commentable,
