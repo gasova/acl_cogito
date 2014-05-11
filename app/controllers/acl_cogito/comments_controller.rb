@@ -7,7 +7,8 @@ class AclCogito::CommentsController < ApplicationController
   end
 
   def create
-    @comment = resource.comments.build(params[:comment]).permit(:owner_id, :commentable_id, :commentable_type, :body)
+    #@comment = resource.comments.build(params[:comment])
+    @comment = resource.comments.build(:comment_param)
     @comment.owner = current_commenter
     if @comment.save
       flash_area = :notice
@@ -43,4 +44,11 @@ class AclCogito::CommentsController < ApplicationController
       format.html { redirect_to( acl_cogito_after_destroy_path(@comment) ) }
     end
   end
+  
+  private
+  
+  def comment_param
+    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body)
+  end
+  
 end
