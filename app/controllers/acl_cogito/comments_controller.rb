@@ -7,14 +7,14 @@ class AclCogito::CommentsController < ApplicationController
   end
 
   def create
-    @comment = resource.comments.build(params[:comment])
+    @comment = resource.comments.build(params[:comment]).permit(:owner_id, :commentable_id, :commentable_type, :body)
     @comment.owner = current_commenter
     if @comment.save
       flash_area = :notice
-      message = t('opinio.messages.comment_sent')
+      message = t('acl_cogito.messages.comment_sent')
     else
       flash_area = :error
-      message = t('opinio.messages.comment_sending_error')
+      message = t('acl_cogito.messages.comment_sending_error')
     end
 
     respond_to do |format|
