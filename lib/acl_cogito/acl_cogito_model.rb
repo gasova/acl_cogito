@@ -7,8 +7,6 @@ module AclCogito
 
     module ClassMethods
     
-      # Adds the Opinio functionallity to the model
-      # You can pass a hash of options to customize the Opinio model
       def acl_cogito(*args)
         return if self.included_modules.include?(AclCogito::AclCogitoModel::Validations)
         options = args.extract_options!

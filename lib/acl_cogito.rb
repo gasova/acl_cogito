@@ -11,7 +11,8 @@ module AclCogito
   require 'acl_cogito/railtie'
   require 'acl_cogito/rails'
   require 'acl_cogito/orm/active_record'
-
+  require 'acl_cogito/acl_cogito_model'
+  
   mattr_accessor :model_name
   @@model_name = "Comment"
 
