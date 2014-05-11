@@ -21,7 +21,7 @@ class AclCogito::CommentsController < ApplicationController
       format.js
       format.html do
         set_flash(flash_area, message)
-        redirect_to(opinio_after_create_path(resource))
+        redirect_to(acl_cogito_after_create_path(resource))
       end
     end
   end
@@ -47,7 +47,7 @@ class AclCogito::CommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body, :comment => [:body])
+    params.require(:comment).permit(:owner_id, :commentable_id, :commentable_type, :body)
   end
   
 end
