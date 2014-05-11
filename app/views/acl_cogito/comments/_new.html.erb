@@ -1,6 +1,6 @@
 <div style="row">
 <% if current_commenter %>
-	<%= form_for Comment.new, :remote => false) do |f| %>
+	<%= form_for(Comment.new, :remote => false) do |f| %>
 		<div class="media">
 			<a class="pull-left" href="#"><%= image_tag current_commenter.avatar.url(:thumb), :class => "media-object member-avatar"  %></a>
   			<div class="media-body">

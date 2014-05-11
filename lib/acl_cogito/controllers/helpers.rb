@@ -3,7 +3,6 @@ module AclCogito
     module Helpers
 
       def comments_for(object, options = {})        
-        puts object
         render_comments(object, options) +
         ( render_comments_form(object, options) unless options[:no_new] ).to_s
       end
@@ -11,7 +10,7 @@ module AclCogito
       def render_comments(object, options = {})
         page  = options.delete(:page)  || 1
         render( :partial => "acl_cogito/comments/comments", 
-                :locals => { :comments => object.comments.page(page).per(10), 
+                :locals => { :comments => object.comments.page(1).per(10), 
                              :commentable => object, 
                              :options => options} )
       end
