@@ -1,0 +1,16 @@
+tr:
+  acl_cogito:
+    actions:
+      delete: 'Sil'
+      reply: 'Yanıtla'
+      add: 'Ekle'
+    messages:
+      no_comments_found: 'Yorum bulunamadı'
+      must_be_logged_in_to_comment: 'Yorum yazabilmek için Giriş yapmalısınız.'
+      add_comment: 'Yorum ekle'
+      comments: 'Yorumlar'
+      comment_sent: 'Yorum eklendi.'
+      comment_sending_error: 'Yorum eklenirken hata oluştu.'
+      comment_destroyed: 'Yorum başarıyla silindi.'
+      comment_interval: 'Yeni yorum yazabilmek için, %{time} saniye beklemelisiniz.'
+      cannot_be_comment_of_comment: "Bir yorumun cevabına cevaplayamazsınız."

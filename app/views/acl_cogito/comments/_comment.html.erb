@@ -1,0 +1,62 @@
+<div class="col-md-12">
+	<div class="media c<%= comment.id %> padtop20">
+		<a class="pull-left" href="#"><%= image_tag comment.owner.avatar.url(:thumb), :size => "48x48", :class => "media-object member-avatar"  %></a>
+		<div class="media-body comment-text">
+			<h4 class="media-heading">
+				<span class="comment-heading"><%= comment.owner.nickname %></span>&nbsp;•&nbsp;
+				<a href="#comment" class="comment-time">
+					<%= distance_of_time_in_words(comment.created_at, Time.now) %> önce...</a>
+			</h4>
+			<%= comment.content %>
+			<div class="col-md-12 pull-left">
+				<div style="float:left;">
+					<span class="comment-group">
+						<a href="#" class="comments" alt="Beğen"><i class="fa fa-thumbs-up"></i></a>
+						&nbsp;|&nbsp;
+					</span>
+				</div>
+				<div style="float:left;">
+					<span class="comment-group">
+						<% if comment.owner == current_commenter %>
+							<%= link_to "Yorumu Sil", [@post, comment],
+								:method => :delete,
+								:class => "comment_action_ln",
+								:remote => true  %>
+						<% end %>
+						&nbsp;|&nbsp;
+						<a href="#" class="comments" 
+									id="comment-social-grid-<%= comment.id %>" 
+									data-toggle="collapse" 
+									data-target=".navbar-collapse">Paylaş&nbsp;
+									<i class="fa fa-angle-right"></i></a>
+						&nbsp;
+					</span>
+				</div>
+				<div class="comment-social-top comment-share-options comment-social-top-<%= comment.id %>">
+					<span><i class="fa fa-twitter-square"></i></span>
+					<span><i class="fa fa-facebook-square"></i></span>
+					<span><i class="fa fa-google-plus-square"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+			$(document).ready(function(){
+				$('.comment-social-top-<%= comment.id %>').hide();
+				$("#comment-social-grid-<%= comment.id %>").mouseenter(function() {
+					$('.comment-social-top-<%= comment.id %>').show();
+					$('.comment-social-top-<%= comment.id %>').stop().animate({
+						width: 225
+					}, 1000);
+				});
+				$("#comment-social-grid-<%= comment.id %>").mouseleave(function() {
+					$('.comment-social-top-<%= comment.id %>').stop().animate({
+						width: 0
+					}, 1000, function() {
+						$('.comment-social-top-<%= comment.id %>').hide();
+					});
+				});
+			});
+	</script>
+</div>

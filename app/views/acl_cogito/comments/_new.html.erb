@@ -1,0 +1,28 @@
+<div style="row">
+<% if current_commenter %>
+	<%= form_for Comment.new, :remote => false) do |f| %>
+		<div class="media">
+			<a class="pull-left" href="#"><%= image_tag current_commenter.avatar.url(:thumb), :class => "media-object member-avatar"  %></a>
+  			<div class="media-body">
+				<div class="textarea-wrapper" data-role="textarea">  
+					<div id="editable-area" contenteditable="true" placeholder="Sizde bir şeyler yazın..."></div>
+      			  	<div class="post-actions">                    
+						<span class="label" id="feedback"></span>
+						<div class="logged-in auth-section">                        
+        					<section>                            
+	    						<div class="temp-post" style="text-align: right">                                
+	      							<button type="submit" class="btn" id="_submit">
+										<span data-role="username"><%= current_user.name %></span> olarak gönder</button>
+								</div>                        
+	  					  	</section>                    
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%= hidden_field_tag :commentable_id, commentable.id %>
+		<%= hidden_field_tag :commentable_type, commentable.class.base_class.name.to_s %>
+		<%= f.text_area :body, :class => "input-textarea",:rows => "3", :placeholder => "Bir şeyler yazın...", :maxlength => "500" %>		
+	<% end %>
+<% end %>
+</div>
