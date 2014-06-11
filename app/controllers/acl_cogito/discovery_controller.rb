@@ -1,4 +1,4 @@
-class AclCogito::discoveryController < ApplicationController
+class AclCogito::DiscoveryController < ApplicationController
   include AclCogito::Controllers::InternalHelpers
 
   def index

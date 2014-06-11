@@ -4,7 +4,7 @@ module AclCogito
 
       def discovery_for( options = {})
         render( 
-          :template => "acl_cogito/discovery#index", 
+          :template => "acl_cogito/discovery", 
           :locals => {:discovery => @discovery, :options => options} )
       end
 
