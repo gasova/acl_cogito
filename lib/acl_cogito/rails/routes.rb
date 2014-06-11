@@ -9,12 +9,10 @@ module ActionDispatch::Routing
     end
 
     def acl_cogito_model(*args)
-      options = args.extract_options!
-      options[:controller] ||= 'acl_cogito/comments'
       resources :comments, :controller => 'acl_cogito/comments' do
         get 'reply', :on => :member if AclCogito.accept_replies
       end
-      resources :discovery, :controller => 'acl_cogito/discovery'      
+      resources :discoveries, :controller => 'acl_cogito/discoveries' #, :only => [:index]      
     end
 
   end

@@ -2,10 +2,13 @@ module AclCogito
   module Controllers
     module Helpers
 
-      def discovery_for( options = {})
-        render( 
-          :template => "acl_cogito/discovery", 
-          :locals => {:discovery => @discovery, :options => options} )
+      def discoveries_for( options = {})
+        render(
+          :template => "acl_cogito/discoveries/index",
+          :locals => { 
+            :discoveries => @discoveries, 
+            :options => options} )
+          #:locals => {:discovery => @discovery, :options => options} )
       end
 
       def comments_for(object, options = {})        

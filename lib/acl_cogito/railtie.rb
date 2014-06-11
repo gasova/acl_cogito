@@ -11,11 +11,11 @@ module AclCogito
       end
       ActiveSupport.on_load(:action_view) do
         require File.join(File.dirname(__FILE__), 'controllers', 'helpers')
-        ::ActionView::Base.send :include,   AclCogito::Controllers::Helpers
+        ::ActionView::Base.send :include, AclCogito::Controllers::Helpers
       end
       ActiveSupport.on_load(:action_controller) do
         require File.join(File.dirname(__FILE__), 'controllers', 'extensions')
-        ::ActionController::Base.send :include,   AclCogito::Controllers::Extensions
+        ::ActionController::Base.send :include, AclCogito::Controllers::Extensions
         ::ActionController::Base.send :include, AclCogito::Controllers::CurrentCommenter
       end
     end
