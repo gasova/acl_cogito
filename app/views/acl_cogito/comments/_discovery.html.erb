@@ -1,15 +1,22 @@
-<div id="discovery-main">
-  <header>
-    <h2>
-      <strong>MGKMEDYA</strong>
-      ÜZERİNDEKİ DİĞER TARTIŞMALAR
-    </h2>
-  </header>
-  <section>
-    <ul id="discovery-units">
-	   <% unless comments.empty? %>
-	    <%= render :partial => 'acl_cogito/comments/discover', :collection => comments %>
-	   <% end %>
-    </ul>
-  </section>
-</div>
+<li class="discovery-unit">
+	<div class="discovery-heading-wrapper">
+		<h3 title="izmir-sovenizmi">
+			<%= comment.post_id.to_s %>
+		</h3>
+	</div>
+    <ul class="meta">
+    	<li class="comments">
+        	<%#= comment_count(co.post_id).to_s %> yorum
+        </li>
+        <li class="time">
+        	<%#= last_comment_time(co.post_id) %>
+        </li>
+	</ul>
+    <%#= image_tag m.avatar.url(:thumb), :size => "36x36", :class => "user", :alt => "Profil Resmi"  %>
+    <p>
+    	<%= comment.owner_id.to_s %> —
+		<span data-role="discovery-top-comment-snippet">
+        	<%= comment.body[0..100] %>...
+        </span>
+    </p>
+</li>

@@ -4,7 +4,14 @@ class AclCogito::CommentsController < ApplicationController
 
   def index
     @comments = resource.comments.page(params[:page])
+    @discovery = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)      
+
   end
+
+  def discovery
+    @discovery = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)      
+  end
+
 
   def create
     @comment = resource.comments.build(comment_params)
@@ -24,15 +31,6 @@ class AclCogito::CommentsController < ApplicationController
         redirect_to(acl_cogito_after_create_path(resource))
       end
     end
-  end
-
-  def discovery
-    @comments = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)  
-
-    respond_to do |format|
-      format.html 
-    end
-    
   end
 
   def destroy

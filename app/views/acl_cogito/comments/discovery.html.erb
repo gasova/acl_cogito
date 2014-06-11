@@ -1,0 +1,17 @@
+<div id="discovery-main">
+  <header>
+    <h2>
+      <strong>MGKMEDYA</strong>
+      ÜZERİNDEKİ DİĞER TARTIŞMALAR
+    </h2>
+  </header>
+  <section>
+    <ul id="discovery-units">
+		<%= @discovery.count.to_s  %>
+		<%= c.id.to_s %>&nbsp;-&nbsp; 
+	   <% unless @comments.empty? %>
+	    <%#= render :partial => 'acl_cogito/comments/discover', :collection => comments %>
+	   <% end %>
+    </ul>
+  </section>
+</div>

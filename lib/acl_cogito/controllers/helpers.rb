@@ -3,7 +3,7 @@ module AclCogito
     module Helpers
 
       def discovery_for(object, options = {})
-        render( :partial => "acl_cogito/comments/discovery", :locals => {:commentable => object, :options => options} )
+        render( :template => "acl_cogito/comments/discovery", :locals => {:collection => @comments, :options => options} )
       end
 
       def comments_for(object, options = {})        
