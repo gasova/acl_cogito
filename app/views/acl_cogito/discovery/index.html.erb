@@ -8,9 +8,8 @@
   <section>
     <ul id="discovery-units">
 		<%= @discovery.count.to_s  %>
-		<%= c.id.to_s %>&nbsp;-&nbsp; 
 	   <% unless @comments.empty? %>
-	    <%#= render :partial => 'acl_cogito/comments/discover', :collection => comments %>
+	    <%#= render :partial => 'acl_cogito/discovery', :collection => comments %>
 	   <% end %>
     </ul>
   </section>

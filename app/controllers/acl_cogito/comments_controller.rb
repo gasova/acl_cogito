@@ -4,14 +4,11 @@ class AclCogito::CommentsController < ApplicationController
 
   def index
     @comments = resource.comments.page(params[:page])
-    @discovery = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)      
-
   end
 
   def discovery
     @discovery = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)      
   end
-
 
   def create
     @comment = resource.comments.build(comment_params)
