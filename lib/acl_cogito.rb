@@ -3,14 +3,14 @@ module AclCogito
 
   module Controllers
     require 'acl_cogito/controllers/helpers'
-    require 'acl_cogito/controllers/current_commenter'
-    require 'acl_cogito/controllers/internal_helpers'
-    require 'acl_cogito/controllers/replies'
+#    require 'acl_cogito/controllers/current_commenter'
+#    require 'acl_cogito/controllers/internal_helpers'
+#    require 'acl_cogito/controllers/replies'
   end
 
-  require 'acl_cogito/railtie'
-  require 'acl_cogito/rails'
-  require 'acl_cogito/orm/active_record'
+ # require 'acl_cogito/railtie'
+#  require 'acl_cogito/rails'
+#  require 'acl_cogito/orm/active_record'
   
   mattr_accessor :model_name
   @@model_name = "Comment"

@@ -6,6 +6,11 @@ class AclCogito::CommentsController < ApplicationController
     @comments = resource.comments.page(params[:page])
   end
 
+  def discoveries
+    @discoveries = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)      
+  end
+
+
   def create
     @comment = resource.comments.build(comment_params)
     @comment.owner_id = current_commenter.id

@@ -2,7 +2,7 @@ module AclCogito
   module Controllers
     module Helpers
 
-      def discoveries_for( options = {})
+      def discoveries_for(options = {})
         render(
           :template => "acl_cogito/discoveries/index",
           :locals => { 
