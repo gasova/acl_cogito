@@ -53,9 +53,9 @@ module AclCogito
     @@custom_identifiers << block
   end
 
-  #def self.set_destroy_conditions(&block)
-  #  @@destroy_conditions = block
-  #end
+  def self.set_destroy_conditions(&block)
+    @@destroy_conditions = block
+  end
 
   def self.check_custom_identifiers(params)
     self.custom_identifiers.each do |identifier|

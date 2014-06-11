@@ -1,14 +1,18 @@
+<h1>Yorumlar</h1>
+<h2>
+	Toplam <%= comments.count.to_s%> yorum
+</h2>
 <div>
   <%= paginate comments %>
 </div>
 
-<ul id="comments">
+<div id="comments">
   <% unless comments.empty? %>
     <%= render :partial => 'acl_cogito/comments/comment', :collection => comments %>
   <% else %>
-    <li id="no_comments"><%= t('acl_cogito.messages.no_comments_found') %></li>
+    <div id="no_comments"><%= t('acl_cogito.messages.no_comments_found') %></div>
   <% end %>
-</ul>
+</div>
 
 <div>
   <%= paginate comments %>

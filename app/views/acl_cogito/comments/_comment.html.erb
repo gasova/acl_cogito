@@ -1,20 +1,17 @@
 <% reply = defined?(reply) ? reply : false %>
-<li id="comment_<%= comment.id %>">
-  <span>User: <%= comment.owner_id %></span>
-  <p>
+<div class="media" id="comment_<%= comment.id %>">
+  <a class="pull-left" href="#">
+    <!-- add here member's avatar -->
+	<img class="media-object" src="..." alt="...">
+	<!-- member avatar -->
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">7 &dot; <%= comment.created_at %></h4>
     <%= simple_format(comment.body) %>
-  </p>
-  <% if current_commenter %>
-	  <% if comment.owner_id == current_commenter.id %>
-    	<%= link_to t('acl_cogito.actions.delete'), comment_path(comment), :method => :delete, :remote => true %>
-  	  <% end %>
-  <% end %>
-  <% if AclCogito.accept_replies && !reply %>
-    <% if current_commenter %>
-      <span><%= link_to t('acl_cogito.actions.reply'), reply_comment_path(comment), :remote => true %></span>
-    <% end %>
-    <ul id="comment_<%= comment.id %>_replies" class="replies">
-      <%= render :partial => "acl_cogito/comments/comment", :collection => comment.comments, :locals => {:reply => true} %>
-    </ul>
-  <% end %>
-</li>
+	<% if current_commenter %>
+		<% if comment.owner_id == current_commenter.id %>
+    		<%= link_to t('acl_cogito.actions.delete'), comment_path(comment), :method => :delete, :remote => true %>
+		<% end %>
+  	<% end %>
+  </div>
+</div>

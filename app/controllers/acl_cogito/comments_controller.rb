@@ -26,6 +26,15 @@ class AclCogito::CommentsController < ApplicationController
     end
   end
 
+  def discovery
+    @comments = resource.comments.where("created_at > ?", 2.month.ago).order("RAND()").limit(4)  
+
+    respond_to do |format|
+      format.html 
+    end
+    
+  end
+
   def destroy
     @comment = AclCogito.model_name.constantize.find(params[:id])
 

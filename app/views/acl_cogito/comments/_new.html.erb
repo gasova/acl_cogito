@@ -1,17 +1,23 @@
-<div id="new_comment">
-  <% if current_commenter %>
-    <h3><%= t('acl_cogito.messages.add_comment') %></h3>
-    <%= form_for Comment.new, :remote => false do |f| %>
-      <p>
-        <%= f.text_area :body %>
-      </p>
-      <%= hidden_field_tag :commentable_id, commentable.id %>
-      <%= hidden_field_tag :commentable_type, commentable.class.base_class.name.to_s %>
-      <%= f.submit t('acl_cogito.actions.add') %>
-    <% end %>
-  <% else %>
+<% if current_commenter %>
+  <div class="media" id="new_comment">
+  	  <a class="pull-left" href="#">
+    	  <!-- add here member's avatar -->
+		  <img class="media-object" src="..." alt="...">
+		  <!-- member avatar -->
+	  </a>
+  	<div class="media-body">
+    	<%= form_for Comment.new, :remote => false do |f| %>
+		  <div class="form-group">
+            <%= f.text_area :body, :class => "form-control" %>
+			<%= hidden_field_tag :commentable_id, commentable.id %>
+      	    <%= hidden_field_tag :commentable_type, commentable.class.base_class.name.to_s %>
+	      </div>
+		  <%= f.submit t('acl_cogito.actions.add'), :class => "btn btn-default" %>
+        <% end %>
+    </div>
+  </div>
+<% else %>
     <p>
       <%= t('acl_cogito.messages.must_be_logged_in_to_comment') %>
     </p>
-  <% end %>
-</div>
+<% end %>
